@@ -10,6 +10,12 @@
 		84A019F8250C38AB00C1D7F1 /* LCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A019EE250C38AB00C1D7F1 /* LCFramework.framework */; };
 		84A019FD250C38AB00C1D7F1 /* LCFrameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A019FC250C38AB00C1D7F1 /* LCFrameworkTests.swift */; };
 		84A019FF250C38AB00C1D7F1 /* LCFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 84A019F1250C38AB00C1D7F1 /* LCFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		84A01A11250C38EF00C1D7F1 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A0D250C38EF00C1D7F1 /* CoreDataHelper.swift */; };
+		84A01A12250C38EF00C1D7F1 /* URLSessionStubHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A0E250C38EF00C1D7F1 /* URLSessionStubHelper.swift */; };
+		84A01A13250C38EF00C1D7F1 /* DataLoaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A0F250C38EF00C1D7F1 /* DataLoaderHelper.swift */; };
+		84A01A14250C38EF00C1D7F1 /* WebServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A10250C38EF00C1D7F1 /* WebServiceHelper.swift */; };
+		84A01A17250C397100C1D7F1 /* WebServiceHelperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A16250C397100C1D7F1 /* WebServiceHelperTests.swift */; };
+		84A01A1A250C397A00C1D7F1 /* StubURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A19250C397A00C1D7F1 /* StubURLSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +35,12 @@
 		84A019F7250C38AB00C1D7F1 /* LCFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LCFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A019FC250C38AB00C1D7F1 /* LCFrameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCFrameworkTests.swift; sourceTree = "<group>"; };
 		84A019FE250C38AB00C1D7F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84A01A0D250C38EF00C1D7F1 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		84A01A0E250C38EF00C1D7F1 /* URLSessionStubHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionStubHelper.swift; sourceTree = "<group>"; };
+		84A01A0F250C38EF00C1D7F1 /* DataLoaderHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoaderHelper.swift; sourceTree = "<group>"; };
+		84A01A10250C38EF00C1D7F1 /* WebServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHelper.swift; sourceTree = "<group>"; };
+		84A01A16250C397100C1D7F1 /* WebServiceHelperTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHelperTests.swift; sourceTree = "<group>"; };
+		84A01A19250C397A00C1D7F1 /* StubURLSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubURLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,7 @@
 		84A019F0250C38AB00C1D7F1 /* LCFramework */ = {
 			isa = PBXGroup;
 			children = (
+				84A01A0C250C38EF00C1D7F1 /* Helper */,
 				84A019F1250C38AB00C1D7F1 /* LCFramework.h */,
 				84A019F2250C38AB00C1D7F1 /* Info.plist */,
 			);
@@ -80,10 +93,39 @@
 		84A019FB250C38AB00C1D7F1 /* LCFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
+				84A01A18250C397A00C1D7F1 /* Stub */,
+				84A01A15250C397100C1D7F1 /* Helper */,
 				84A019FC250C38AB00C1D7F1 /* LCFrameworkTests.swift */,
 				84A019FE250C38AB00C1D7F1 /* Info.plist */,
 			);
 			path = LCFrameworkTests;
+			sourceTree = "<group>";
+		};
+		84A01A0C250C38EF00C1D7F1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				84A01A0D250C38EF00C1D7F1 /* CoreDataHelper.swift */,
+				84A01A0E250C38EF00C1D7F1 /* URLSessionStubHelper.swift */,
+				84A01A0F250C38EF00C1D7F1 /* DataLoaderHelper.swift */,
+				84A01A10250C38EF00C1D7F1 /* WebServiceHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		84A01A15250C397100C1D7F1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				84A01A16250C397100C1D7F1 /* WebServiceHelperTests.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		84A01A18250C397A00C1D7F1 /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				84A01A19250C397A00C1D7F1 /* StubURLSession.swift */,
+			);
+			path = Stub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +237,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A01A14250C38EF00C1D7F1 /* WebServiceHelper.swift in Sources */,
+				84A01A13250C38EF00C1D7F1 /* DataLoaderHelper.swift in Sources */,
+				84A01A12250C38EF00C1D7F1 /* URLSessionStubHelper.swift in Sources */,
+				84A01A11250C38EF00C1D7F1 /* CoreDataHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +248,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A01A17250C397100C1D7F1 /* WebServiceHelperTests.swift in Sources */,
+				84A01A1A250C397A00C1D7F1 /* StubURLSession.swift in Sources */,
 				84A019FD250C38AB00C1D7F1 /* LCFrameworkTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +436,7 @@
 		84A01A06250C38AB00C1D7F1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32DX3M943S;
 				INFOPLIST_FILE = LCFrameworkTests/Info.plist;
@@ -406,6 +455,7 @@
 		84A01A07250C38AB00C1D7F1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 32DX3M943S;
 				INFOPLIST_FILE = LCFrameworkTests/Info.plist;
