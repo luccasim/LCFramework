@@ -18,12 +18,11 @@ protocol WebServiceHelper {
     func listTask(Option:WebService.Option, List:[URLRequest],
                   Completion:@escaping ((Result<(URLRequest, Data),Error>) -> Void),
                   OnFinish:@escaping ((Int) -> Void))
-    
 }
 
-public class WebService: WebServiceHelper {
+open class WebService: WebServiceHelper {
         
-    private(set) var session : URLSessionProtocol
+    public var session : URLSessionProtocol
     
     public init(Session:URLSessionProtocol = URLSession.shared) {
         self.session = Session
