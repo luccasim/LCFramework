@@ -18,6 +18,9 @@ protocol WebServiceHelper {
     func listTask(Option:WebService.Option, List:[URLRequest],
                   Completion:@escaping ((Result<(URLRequest, Data),Error>) -> Void),
                   OnFinish:@escaping ((Int) -> Void))
+    
+    func task<Reponse:Codable>(Request:URLRequest, Completion:@escaping (Result<Reponse,Error>) -> Void)
+
 }
 
 open class WebService: WebServiceHelper {
@@ -159,5 +162,28 @@ open class WebService: WebServiceHelper {
             
             self.requests.insert(Request)
         }
+    }
+    
+    public func task<Reponse:Codable>(Request:URLRequest, Completion:@escaping (Result<Reponse,Error>) -> Void) {
+        
+        self.session.dataTask(with: Request) { (Data, Rep, Err) in
+            
+            if let error = Err {
+                return Completion(.failure(error))
+            }
+            
+            else if let data = Data {
+                
+                do {
+                    
+                    let reponse = try JSONDecoder().decode(Reponse.self, from: data)
+                    Completion(.success(reponse))
+                    
+                } catch let error  {
+                    Completion(.failure(error))
+                }
+            }
+            
+        }.resume()
     }
 }

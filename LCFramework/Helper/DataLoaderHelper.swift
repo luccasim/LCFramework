@@ -159,7 +159,7 @@ public extension DataLoader {
         
         let manager = FileManager.default
         
-        let dir = manager.urls(for: .applicationDirectory, in: .userDomainMask)[0]
+        let dir = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("Loader")
         
         do {
@@ -216,7 +216,7 @@ fileprivate extension DataLoader {
         
         let manager = FileManager.default
         
-        let url = manager.urls(for: .applicationDirectory, in: .userDomainMask)[0]
+        let url = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("Loader")
             .appendingPathComponent(item.fileName)
         
@@ -234,7 +234,7 @@ fileprivate extension DataLoader {
         
         let manager = FileManager.default
         
-        let file = manager.urls(for: .applicationDirectory, in: .userDomainMask)[0]
+        let file = manager.urls(for: .documentDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("Loader")
             .appendingPathComponent(item.fileName)
         
@@ -247,7 +247,7 @@ fileprivate extension DataLoader {
         
         let manager = FileManager.default
         
-        let dir = manager.urls(for: .applicationDirectory, in: .userDomainMask)[0].appendingPathComponent("Loader")
+        let dir = manager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Loader")
         
         let file = dir.appendingPathComponent(item.fileName)
         let dirExist = manager.fileExists(atPath: dir.path)
