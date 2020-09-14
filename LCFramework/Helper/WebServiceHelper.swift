@@ -65,6 +65,7 @@ open class WebService: WebServiceHelper {
         self.listQueue.async {
             
             guard !self.isProcess else {
+                print("[\(type(of: self))] : Is already download sequence.")
                 return OnFinish(0)
             }
             
@@ -89,12 +90,12 @@ open class WebService: WebServiceHelper {
                     let timer = DispatchQueue.init(label: "Timer \(list.count)")
                     
                     timer.async {
-                        print("Time start : \(Date())")
+                        print("[\(type(of: self))] : Time start : \(Date())")
                         self.group.enter()
                     }
                     
                     timer.asyncAfter(deadline: .now() + Time) {
-                        print("Time end: \(Date())")
+                        print("[\(type(of: self))] : Time end: \(Date())")
                         self.group.leave()
                     }
                 }
@@ -124,8 +125,9 @@ open class WebService: WebServiceHelper {
             }
             
             self.group.notify(queue: .main) {
-                OnFinish(success)
                 self.isProcess = false
+                OnFinish(success)
+                print("[\(type(of: self))] : Finish with \(success) success.")
             }
         }
     }
@@ -136,9 +138,7 @@ open class WebService: WebServiceHelper {
     public func dataTask(Request: URLRequest, Completion: @escaping ((Result<Data, Error>) -> Void)) {
         
         self.requestQueue.async {
-            
-            print("Start")
-            
+                        
             guard !self.requests.contains(Request) else {
                 return Completion(.failure(APIErrors.requestIsAlreadyTask))
             }
@@ -156,7 +156,6 @@ open class WebService: WebServiceHelper {
                 let _ = self?.requestQueue.async {
                     self?.requests.remove(Request)
                 }
-                print("Stop")
                 
             }.resume()
             
