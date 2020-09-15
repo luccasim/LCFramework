@@ -119,9 +119,10 @@ public extension DataLoader {
     /// Load a ressource asynchrony. First check if the ressource is cached,
     /// else try to reload from the local file, else download it.
     /// - Parameter Url: The remote uri, use this only if you have a valid and none credential url.
+    ///  The fileName delete / and take the 30 last caractere from this url. If you have collision use item instead.
     /// - Returns: A Futur to work and publish asynchrony.
     func load(Url:URL) -> Future<T,Never> {
-        let item = LoaderItem(fileName: Url.lastPathComponent, request: URLRequest(url: Url))
+        let item = LoaderItem(fileName: String(Url.absoluteString.replacingOccurrences(of: "/", with: "").suffix(30)), request: URLRequest(url: Url))
         return load(Item: item)
     }
     
@@ -130,6 +131,7 @@ public extension DataLoader {
     /// else try to reload from the local file, else download it.
     /// - Parameters:
     ///   - Url: The remote uri, use this only if you have a valid and none credential url.
+    /// The fileName delete / and take the 30 last caractere from this url. If you have collision use item instead.
     ///   - Callback:A completion to work when task finish.
     func load(Url:URL, Callback:@escaping((T) -> Void)) {
         let futur = self.load(Url: Url)
