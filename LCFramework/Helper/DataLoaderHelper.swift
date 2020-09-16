@@ -126,7 +126,6 @@ public extension DataLoader {
         return load(Item: item)
     }
     
-    
     /// Load a ressource asynchrony. First check if the ressource is cached,
     /// else try to reload from the local file, else download it.
     /// - Parameters:

@@ -20,10 +20,16 @@ protocol WebServiceHelper {
                   OnFinish:@escaping ((Int) -> Void))
     
     func task<Reponse:Codable>(Request:URLRequest, Completion:@escaping (Result<Reponse,Error>) -> Void)
-
+    
+    func sequence<T>(Option:WebService.Option, List:[Future<T,Error>], OnFinish:@escaping (Result<(Success:[T],Failed:[T]),Never>) -> Void)
 }
 
 open class WebService: WebServiceHelper {
+    
+    func sequence<T>(Option: Option, List: [Future<T, Error>], OnFinish: @escaping (Result<(Success: [T], Failed: [T]), Never>) -> Void) {
+        
+    }
+    
         
     public var session : URLSessionProtocol
     
