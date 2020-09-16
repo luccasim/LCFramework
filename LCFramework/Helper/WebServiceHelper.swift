@@ -21,15 +21,27 @@ protocol WebServiceHelper {
     
     func task<Reponse:Codable>(Request:URLRequest, Completion:@escaping (Result<Reponse,Error>) -> Void)
     
-    func sequence<T>(Option:WebService.Option, List:[Future<T,Error>], OnFinish:@escaping (Result<(Success:[T],Failed:[T]),Never>) -> Void)
+    func sequence<T>(Option:WebService.Option, List:[Future<T,Never>], OnFinish:@escaping (Result<[T],Never>) -> Void)
 }
 
 open class WebService: WebServiceHelper {
     
-    func sequence<T>(Option: Option, List: [Future<T, Error>], OnFinish: @escaping (Result<(Success: [T], Failed: [T]), Never>) -> Void) {
+    var cancel = Set<AnyCancellable>()
         
+    public func sequence<T>(Option:WebService.Option = .Order, List: [Future<T, Never>], OnFinish: @escaping (Result<[T], Never>) -> Void) {
+        
+        var result : [T] = []
+                
+        List.publisher
+            .flatMap(maxPublishers: .max(1)) {$0}
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: { (finish) in
+                OnFinish(.success(result))
+            }) { (value) in
+                result.append(value)
+            }
+            .store(in: &cancel)
     }
-    
         
     public var session : URLSessionProtocol
     

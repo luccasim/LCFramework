@@ -87,7 +87,7 @@ class WebServiceHelperTests: XCTestCase {
         
         let list = requests + requests
         
-        ws.listTask(Option: .Page(Page: 2), List: list, Completion: { (res) in
+        ws.listTask(Option: .Group(Page: 2), List: list, Completion: { (res) in
             switch res {
             case .failure(let error): print(error.localizedDescription)
             case .success(let tuple): print("[\(tuple.0.url!)] with \(tuple.1)")
@@ -112,7 +112,7 @@ class WebServiceHelperTests: XCTestCase {
         
         let list = requests + requests
         
-        ws.listTask(Option: .Timer(Page: 20, Interval: 5), List: list, Completion: { (res) in
+        ws.listTask(Option: .Delay(Page: 20, Interval: 5), List: list, Completion: { (res) in
             switch res {
             case .failure(let error): print(error.localizedDescription)
             case .success(let tuple): print("[\(tuple.0.url!)] with \(tuple.1)")
@@ -127,4 +127,36 @@ class WebServiceHelperTests: XCTestCase {
     
     var bag = Set<AnyCancellable>()
     
+    func testSequence() {
+        
+        let ws = WebService(Session: stub)
+        let exp = expectation(description: "Sequence")
+        
+        let requests = (1...requestNumber)
+            .compactMap {URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/\($0).png")}
+            .map {URLRequest(url: $0)}
+            .map {request -> Future<String,Never> in
+                return Future<String,Never> { promise in
+                    self.stub.dataTask(with: request) { (Data, Rep, Err) in
+                        promise(.success(String(request.url!.absoluteString.suffix(10))))
+                    }.resume()
+                }
+            }
+        
+        var s = 0
+
+        ws.sequence(List: requests) { (result) in
+            switch result {
+            case .success(let success):
+                success.forEach({print($0)})
+                s = success.count
+            default: break
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30, handler: nil)
+        
+        XCTAssert(s == requests.count)
+    }
 }
