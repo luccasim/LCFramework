@@ -134,7 +134,10 @@ public extension DataLoader {
     ///   - Callback:A completion to work when task finish.
     func load(Url:URL, Callback:@escaping((T) -> Void)) {
         let futur = self.load(Url: Url)
-            .sink {Callback($0)}
+            .sink {
+                Callback($0)
+                self.cancellable.removeAll()
+            }
         self.cancellable.insert(futur)
     }
     
@@ -146,7 +149,8 @@ public extension DataLoader {
     ///   - Callback: A completion to work when task finish.
     func load(Item:LoaderItemProtocol, Callback:@escaping((T) -> Void)) {
         let futur = self.load(Item: Item)
-            .sink {Callback($0)}
+            .sink {Callback($0)
+                self.cancellable.removeAll()}
         self.cancellable.insert(futur)
     }
     
