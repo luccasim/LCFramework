@@ -115,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				84A01A0D250C38EF00C1D7F1 /* CoreDataHelper.swift */,
-				84A01A0E250C38EF00C1D7F1 /* URLSessionStubHelper.swift */,
 				84A01A0F250C38EF00C1D7F1 /* DataLoaderHelper.swift */,
+				84A01A0E250C38EF00C1D7F1 /* URLSessionStubHelper.swift */,
 				84A01A10250C38EF00C1D7F1 /* WebServiceHelper.swift */,
 			);
 			path = Helper;

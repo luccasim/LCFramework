@@ -46,8 +46,11 @@ public class CoreDataStore<T:NSManagedObject> : CoreDataStoreHelper {
     
     public typealias Entity = T
     
-    public init(){}
-    public var trace = true
+    public init(Traceable:Bool=false){
+        self.trace = Traceable
+    }
+    
+    public var trace : Bool
     
     public static func register(ContainerName:String) {
         SharedContainer.shared.setContainer(Name: ContainerName)
@@ -63,7 +66,7 @@ public class CoreDataStore<T:NSManagedObject> : CoreDataStoreHelper {
     }
     
     func trace(_ str:String) {
-        if trace {
+        if self.trace {
             print("[CoreStore] : \(str)")
         }
     }
@@ -113,7 +116,7 @@ public class CoreDataStore<T:NSManagedObject> : CoreDataStoreHelper {
     
     public func delete(Entity:T) {
         self.persistentContainer.viewContext.delete(Entity)
-        self.trace("Delete \(Entity.description)")
+        self.trace("Delete \(Entity.objectID)")
     }
     
     public func save() {
