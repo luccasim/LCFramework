@@ -19,19 +19,20 @@ import CoreData
 ///
 /// If you crash with create, check you entity class module
 /// and turn it on *Current Product Module*
-protocol CoreDataHelperProtocol {
+protocol CoreDataStoreHelper {
     
     associatedtype Entity : NSManagedObject
     
-    var persistentContainer: NSPersistentCloudKitContainer {get}
-        
-    func fetch(Predicate:String?,Limit:Int?) -> Result<[Entity],Error>
+    var context: NSManagedObjectContext {get}
+    
+    static func register(ContainerName:String)
     
     func create() -> Entity
-    func get(Predicate:String) -> Entity?
+    func fetch(Predicate:NSPredicate?, Limit:Int?) -> Result<[Entity],Error>
+    func first(Predicate:NSPredicate?) -> Entity?
     func delete(Entity:Entity)
     func save()
-    func clear()
+    func removeAll()
     
 }
 
@@ -41,41 +42,42 @@ protocol CoreDataHelperProtocol {
 ///
 /// To avoid loading delay from the persistentContainer,
 /// its recommend to regist the .xcdatamodel under the SceneDelegate.
-open class CoreDataStore<T:NSManagedObject> : CoreDataHelperProtocol {
-        
+public class CoreDataStore<T:NSManagedObject> : CoreDataStoreHelper {
+    
     public typealias Entity = T
     
     public init(){}
+    public var trace = true
     
     public static func register(ContainerName:String) {
         SharedContainer.shared.setContainer(Name: ContainerName)
+        print("[CoreStore] : Register for \(ContainerName)")
     }
     
     var persistentContainer: NSPersistentCloudKitContainer {
         return SharedContainer.shared.persistentContainer
     }
-
-}
-
-// MARK: - Implementation
-
-public extension CoreDataStore {
     
-    /// Use the app persistentContainer.
-    var context : NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         return self.persistentContainer.viewContext
     }
     
-    /// Fetch entity with matching predicate as a Result. Without or nil predicate return all Entities.
-    /// - Parameter Predicate: With String Swift format only. Like "id == \(yourModel.id)".
-    /// - Parameter Limit: Optional limit the request.
-    /// - Returns: The fetch results
-   func fetch(Predicate:String?=nil, Limit:Int?=nil) -> Result<[Entity],Error> {
+    func trace(_ str:String) {
+        if trace {
+            print("[CoreStore] : \(str)")
+        }
+    }
+    
+    public func create() -> T {
+        return T(context: self.persistentContainer.viewContext)
+    }
+    
+    public func fetch(Predicate:NSPredicate?=nil, Limit:Int?=nil) -> Result<[T],Error> {
         
-        let request = Entity.fetchRequest()
+        let request = T.fetchRequest()
         
         if let predicate = Predicate {
-            request.predicate = NSPredicate(format: predicate)
+            request.predicate = predicate
         }
         
         if let limit = Limit {
@@ -84,51 +86,60 @@ public extension CoreDataStore {
         
         do {
             
-            let result = try self.context.fetch(request)
-            return .success(result as? [Entity] ?? [])
+            let result = try self.persistentContainer.viewContext.fetch(request)
+            let res = result as? [T] ?? []
+            self.trace("Fetch {\(Predicate?.description ?? "All") \(T.self) and get \(res.count) results}")
+            return .success(res)
             
         } catch let error {
+            self.trace("Fetch failed with error -> \(error.localizedDescription)")
             return .failure(error)
         }
     }
     
-    /// Create and return a new empty entity.
-    /// - Returns: Entity insered into default app Context.
-    func create() -> Entity {
-        return Entity(context: self.context)
-    }
-    
-    /// Get the first result of predicate
-    /// - Parameter Predicate: With String Swift format only. Like "id == \(yourModel.id)"
-    func get(Predicate:String) -> Entity? {
-        return try? self.fetch(Predicate: Predicate, Limit: 1).get().first
-    }
-    
-    /// Delete the entity from its context
-    /// - Parameter Entity: Entity to remove
-    func delete(Entity: Entity) {
-        self.context.delete(Entity)
-    }
-    
-    /// Save the commit change (ignore error)
-    func save() {
-        try? self.context.save()
-    }
-    
-    /// Remove all entity
-    func clear() {
+    public func first(Predicate:NSPredicate?=nil) -> T? {
         
-        let allObjects = self.fetch()
+        let request = T.fetchRequest()
+        request.fetchLimit = 1
         
-        switch allObjects {
-            
-        case .success(let result):
-            
-            result.forEach { (ent) in
-                self.context.delete(ent)
+        if let predicate = Predicate {
+            request.predicate = predicate
+        }
+
+        let result = try? (self.persistentContainer.viewContext.fetch(request) as? [T])?.first
+        self.trace("First {\(Predicate?.description ?? "") of \(T.self) \(result == nil ? "not found" : "found")")
+        return result
+    }
+    
+    public func delete(Entity:T) {
+        self.persistentContainer.viewContext.delete(Entity)
+        self.trace("Delete \(Entity.description)")
+    }
+    
+    public func save() {
+        do {
+            if self.persistentContainer.viewContext.hasChanges {
+                try self.persistentContainer.viewContext.save()
+                self.trace("Save Context.")
+            } else {
+                self.trace("No Change for save Context.")
             }
+        } catch let error {
+            self.trace(error.localizedDescription)
+        }
+    }
+    
+    public func removeAll() {
+                
+        do {
             
-        default: break
+            let result = try self.fetch().get()
+            result.forEach({self.delete(Entity: $0)})
+            self.save()
+            self.trace("RemoveAll \(T.self), succed operation.")
+            
+        } catch let error {
+            self.trace("RemoveAll \(T.self), failed -> \(error)")
         }
     }
 }
