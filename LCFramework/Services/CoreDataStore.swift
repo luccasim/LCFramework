@@ -9,17 +9,7 @@
 import Foundation
 import CoreData
 
-/// Help to Manage CoreData Entities with basic operations :
-/// Fetch, Create, Get, Delete, Save and Clear.
-///
-/// Fetching uses NSPredicate with The String Format.
-///
-/// Each operations (except save) **did'nt save the commit change**,
-/// its recommend to implement them.
-///
-/// If you crash with create, check you entity class module
-/// and turn it on *Current Product Module*
-protocol CoreDataStoreHelper {
+protocol CoreDataStoreInterface {
     
     associatedtype Entity : NSManagedObject
     
@@ -36,13 +26,17 @@ protocol CoreDataStoreHelper {
     
 }
 
-/// Generique implementation of CoreDataHelperProtocol,
-/// This generic shared the registed PersistentContaint for
-/// each Entity his support.
+/// Help to Manage CoreData Entities with basic operations :
+/// Fetch, Create, Get, Delete, Save and Clear.
 ///
-/// To avoid loading delay from the persistentContainer,
-/// its recommend to regist the .xcdatamodel under the SceneDelegate.
-public class CoreDataStore<T:NSManagedObject> : CoreDataStoreHelper {
+/// Fetching uses NSPredicate with The String Format.
+///
+/// Each operations (except save) **did'nt save the commit change**,
+/// its recommend to implement them.
+///
+/// If you crash with create, check you entity class module
+/// and turn it on *Current Product Module*
+public class CoreDataStore<T:NSManagedObject> : CoreDataStoreInterface {
     
     public typealias Entity = T
     
