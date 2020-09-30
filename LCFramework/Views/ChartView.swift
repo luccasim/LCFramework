@@ -8,16 +8,36 @@
 
 import SwiftUI
 
-struct ChartView: View {
+public struct ChartView: View {
     
-    struct ChartData {
+    public struct ChartData {
         
         let key : String
         let value : Int
         let maxValue : Double
         
+        public init(Key:String, Value:Int, MaxValue:Double) {
+            self.key = Key
+            self.value = Value
+            self.maxValue = MaxValue
+        }
+        
         var percent : Double {
             return Double(value) / maxValue
+        }
+    }
+    
+    public init(Title:String, Color:Color, Height:CGFloat=20, Delay:TimeInterval=1, Data:[ChartData]) {
+        self.title = Title
+        self.color = Color
+        self.height = Height
+        self.data = Data
+        self.delay = Delay
+    }
+    
+    public func Animate() {
+        withAnimation {
+            self.isAnimate = true
         }
     }
     
@@ -27,8 +47,9 @@ struct ChartView: View {
     let data : [ChartData]
     let color : Color
     let height : CGFloat
+    let delay : TimeInterval
     
-    var body: some View {
+    public var body: some View {
         
         VStack {
             
@@ -42,7 +63,7 @@ struct ChartView: View {
             
             
         }.onAppear() {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                 self.isAnimate = true
             }
         }
@@ -97,14 +118,16 @@ struct ChartCell: View {
 
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
+        
         let data : [ChartView.ChartData] = [
-            ChartView.ChartData(key: "HP", value: 190, maxValue: 255),
-            ChartView.ChartData(key: "ATK", value: 67, maxValue: 255),
-            ChartView.ChartData(key: "DEF", value: 97, maxValue: 255),
-            ChartView.ChartData(key: "SATK", value: 40, maxValue: 255),
-            ChartView.ChartData(key: "SDEF", value: 229, maxValue: 255),
-            ChartView.ChartData(key: "SP", value: 90, maxValue: 180),
+            ChartView.ChartData(Key: "HP", Value: 190, MaxValue: 255),
+            ChartView.ChartData(Key: "ATK", Value: 67, MaxValue: 255),
+            ChartView.ChartData(Key: "DEF", Value: 97, MaxValue: 255),
+            ChartView.ChartData(Key: "SATK", Value: 40, MaxValue: 255),
+            ChartView.ChartData(Key: "SDEF", Value: 229, MaxValue: 255),
+            ChartView.ChartData(Key: "SP", Value: 90, MaxValue: 180),
         ]
-        ChartView(title: "Stats", data: data, color:.orange, height:20)
+        
+        return ChartView(Title: "Stats", Color: .orange, Delay:20, Data: data)
     }
 }
