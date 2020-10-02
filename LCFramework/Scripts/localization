@@ -1,0 +1,1 @@
+genstrings -o en.lproj *.swift
