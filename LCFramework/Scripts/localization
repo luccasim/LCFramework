@@ -1,1 +1,10 @@
-genstrings -o en.lproj *.swift
+# 1. Il faut internationaliser les langues -> Project -> Use Base Internalization.
+Puis on ajoute le nombre de langues supportés
+
+# 2. On Crée un fichier Localizable.strings et on localize les langues.
+
+# 3. Durant le developpement on utilise NSLocalisation() pour récupérer la valeur traduite.
+
+Permet de RESET le fichier en.lproj avec toutes les key de Localizable.strings :
+
+zsh genstrings -o en.lproj */*.swift
