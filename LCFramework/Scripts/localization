@@ -8,3 +8,5 @@ Puis on ajoute le nombre de langues supportés
 Permet de RESET le fichier en.lproj avec toutes les key de Localizable.strings :
 
 zsh genstrings -o en.lproj */*.swift
+
+# 4. Crée un fichier LocalizableManager, pour recupérer la langue du device -> Locale.current.languageCode.
