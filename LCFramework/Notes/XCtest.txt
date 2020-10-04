@@ -1,0 +1,11 @@
+#Pour récupérer / lire un fichier data dans un projet type framework utilser la methode si dessous:
+
+func load(FileName:String) -> Data {
+
+    let bundle = Bundle(identifier: "fr.devios.LCPokeAPI")!
+    let path = bundle.path(forResource: FileName, ofType: nil)!
+    let url = URL(fileURLWithPath: path)
+    return try! Data(contentsOf: url)
+}
+
+# A noter que le fichier dois être relié à la target membership.

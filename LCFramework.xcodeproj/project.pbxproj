@@ -26,6 +26,8 @@
 		84A01A22250C3A1000C1D7F1 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A1F250C3A1000C1D7F1 /* Int.swift */; };
 		84A01A23250C3A1000C1D7F1 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A01A20250C3A1000C1D7F1 /* Double.swift */; };
 		84C062E42526DC2B00D6A1F5 /* localization in Resources */ = {isa = PBXBuildFile; fileRef = 84C062E32526DC2B00D6A1F5 /* localization */; };
+		84C0634F2529716B00D6A1F5 /* XCtest.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84C0634E2529716B00D6A1F5 /* XCtest.txt */; };
+		84C063542529720100D6A1F5 /* Config.txt in Resources */ = {isa = PBXBuildFile; fileRef = 84C063532529720100D6A1F5 /* Config.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		84A01A1F250C3A1000C1D7F1 /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		84A01A20250C3A1000C1D7F1 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		84C062E32526DC2B00D6A1F5 /* localization */ = {isa = PBXFileReference; lastKnownFileType = text; path = localization; sourceTree = "<group>"; };
+		84C0634E2529716B00D6A1F5 /* XCtest.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = XCtest.txt; sourceTree = "<group>"; };
+		84C063532529720100D6A1F5 /* Config.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 		84A019F0250C38AB00C1D7F1 /* LCFramework */ = {
 			isa = PBXGroup;
 			children = (
+				84C06352252971E400D6A1F5 /* Notes */,
 				84340CDD2521AAFD00B408E5 /* Scripts */,
 				842F2A8A252167BF00636211 /* ToDo */,
 				842F2A7D252161C800636211 /* Views */,
@@ -196,6 +201,15 @@
 				84A01A20250C3A1000C1D7F1 /* Double.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84C06352252971E400D6A1F5 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				84C0634E2529716B00D6A1F5 /* XCtest.txt */,
+				84C063532529720100D6A1F5 /* Config.txt */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,6 +306,8 @@
 			files = (
 				84340CDF2521AB6300B408E5 /* xcframework in Resources */,
 				84C062E42526DC2B00D6A1F5 /* localization in Resources */,
+				84C063542529720100D6A1F5 /* Config.txt in Resources */,
+				84C0634F2529716B00D6A1F5 /* XCtest.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

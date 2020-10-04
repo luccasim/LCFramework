@@ -1,0 +1,7 @@
+# Ne pas confondre Config et configuration.
+L'idée est que la config permet d'ajouter des variable via le plist.
+Donc avoir plusieurs config est interessant pour changer d'environement ou avoir des 'pre-Settings'
+
+# Lorsque le projet contient des framework le searchPath ne seras pas set pour les nouvelles configuration;
+il faudra ajouter manuellement dans le build-Setting le chemin du/des framework :
+- > Add the following Framework Search Path in the Build Settings of your target: $(SYMROOT)/Release$(EFFECTIVE_PLATFORM_NAME) and make it non-recursive
