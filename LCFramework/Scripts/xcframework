@@ -31,7 +31,7 @@ xcodebuild -create-xcframework \
 
 # 3 - Full script
 
-    xcodebuild archive \
+xcodebuild archive \
     -scheme LCFramework \
     -destination "generic/platform=iOS Simulator" \
     -archivePath "archives/LCFramework-Simulator" \
