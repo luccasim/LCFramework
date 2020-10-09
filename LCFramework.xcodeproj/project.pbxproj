@@ -10,12 +10,13 @@
 		841B1230252EFFAB009283FF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B122F252EFFAB009283FF /* String.swift */; };
 		841B1234252F0476009283FF /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B1233252F0476009283FF /* StringTests.swift */; };
 		841B1256252F7D4B009283FF /* avengers.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B124F252F7D4B009283FF /* avengers.jpg */; };
-		841B1257252F7D4B009283FF /* badboys_forLife.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1250252F7D4B009283FF /* badboys_forLife.jpg */; };
-		841B1258252F7D4B009283FF /* Visiteurs2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1251252F7D4B009283FF /* Visiteurs2.jpg */; };
-		841B1259252F7D4B009283FF /* Sherlock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1252252F7D4B009283FF /* Sherlock.jpg */; };
+		841B1257252F7D4B009283FF /* badboys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1250252F7D4B009283FF /* badboys.jpg */; };
+		841B1258252F7D4B009283FF /* visiteur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1251252F7D4B009283FF /* visiteur.jpg */; };
+		841B1259252F7D4B009283FF /* sherlock.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1252252F7D4B009283FF /* sherlock.jpg */; };
 		841B125A252F7D4B009283FF /* avatar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1253252F7D4B009283FF /* avatar.jpg */; };
-		841B125B252F7D4B009283FF /* jurassic_world.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1254252F7D4B009283FF /* jurassic_world.jpg */; };
-		841B125C252F7D4B009283FF /* spiderman_farFromHome.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1255252F7D4B009283FF /* spiderman_farFromHome.jpg */; };
+		841B125B252F7D4B009283FF /* jurassic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1254252F7D4B009283FF /* jurassic.jpg */; };
+		841B125C252F7D4B009283FF /* spiderman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 841B1255252F7D4B009283FF /* spiderman.jpg */; };
+		841B1261252F812C009283FF /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841B1260252F812C009283FF /* Data.swift */; };
 		8428D23F251D054B00C23804 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8428D23E251D054B00C23804 /* Translator.swift */; };
 		842F2A81252162EF00636211 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F2A80252162EF00636211 /* ChartView.swift */; };
 		842F2A872521654800636211 /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842F2A862521654800636211 /* Pie.swift */; };
@@ -50,12 +51,13 @@
 		841B122F252EFFAB009283FF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		841B1233252F0476009283FF /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		841B124F252F7D4B009283FF /* avengers.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avengers.jpg; sourceTree = "<group>"; };
-		841B1250252F7D4B009283FF /* badboys_forLife.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badboys_forLife.jpg; sourceTree = "<group>"; };
-		841B1251252F7D4B009283FF /* Visiteurs2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Visiteurs2.jpg; sourceTree = "<group>"; };
-		841B1252252F7D4B009283FF /* Sherlock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sherlock.jpg; sourceTree = "<group>"; };
+		841B1250252F7D4B009283FF /* badboys.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badboys.jpg; sourceTree = "<group>"; };
+		841B1251252F7D4B009283FF /* visiteur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = visiteur.jpg; sourceTree = "<group>"; };
+		841B1252252F7D4B009283FF /* sherlock.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sherlock.jpg; sourceTree = "<group>"; };
 		841B1253252F7D4B009283FF /* avatar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avatar.jpg; sourceTree = "<group>"; };
-		841B1254252F7D4B009283FF /* jurassic_world.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jurassic_world.jpg; sourceTree = "<group>"; };
-		841B1255252F7D4B009283FF /* spiderman_farFromHome.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spiderman_farFromHome.jpg; sourceTree = "<group>"; };
+		841B1254252F7D4B009283FF /* jurassic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jurassic.jpg; sourceTree = "<group>"; };
+		841B1255252F7D4B009283FF /* spiderman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spiderman.jpg; sourceTree = "<group>"; };
+		841B1260252F812C009283FF /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		8428D23E251D054B00C23804 /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
 		842F2A80252162EF00636211 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		842F2A862521654800636211 /* Pie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
@@ -98,18 +100,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		841B124E252F7D33009283FF /* jackets */ = {
+		841B124E252F7D33009283FF /* Jackets */ = {
 			isa = PBXGroup;
 			children = (
 				841B1253252F7D4B009283FF /* avatar.jpg */,
 				841B124F252F7D4B009283FF /* avengers.jpg */,
-				841B1250252F7D4B009283FF /* badboys_forLife.jpg */,
-				841B1254252F7D4B009283FF /* jurassic_world.jpg */,
-				841B1252252F7D4B009283FF /* Sherlock.jpg */,
-				841B1255252F7D4B009283FF /* spiderman_farFromHome.jpg */,
-				841B1251252F7D4B009283FF /* Visiteurs2.jpg */,
+				841B1250252F7D4B009283FF /* badboys.jpg */,
+				841B1254252F7D4B009283FF /* jurassic.jpg */,
+				841B1252252F7D4B009283FF /* sherlock.jpg */,
+				841B1255252F7D4B009283FF /* spiderman.jpg */,
+				841B1251252F7D4B009283FF /* visiteur.jpg */,
 			);
-			path = jackets;
+			path = Jackets;
+			sourceTree = "<group>";
+		};
+		841B125F252F80CE009283FF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				841B1260252F812C009283FF /* Data.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		8428D23D251D053500C23804 /* Services */ = {
@@ -170,7 +180,8 @@
 		84A019F0250C38AB00C1D7F1 /* LCFramework */ = {
 			isa = PBXGroup;
 			children = (
-				841B124E252F7D33009283FF /* jackets */,
+				841B125F252F80CE009283FF /* Data */,
+				841B124E252F7D33009283FF /* Jackets */,
 				84C06352252971E400D6A1F5 /* Notes */,
 				84340CDD2521AAFD00B408E5 /* Scripts */,
 				842F2A8A252167BF00636211 /* ToDo */,
@@ -322,16 +333,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841B1258252F7D4B009283FF /* Visiteurs2.jpg in Resources */,
+				841B1258252F7D4B009283FF /* visiteur.jpg in Resources */,
 				84340CDF2521AB6300B408E5 /* xcframework in Resources */,
 				84C062E42526DC2B00D6A1F5 /* localization in Resources */,
-				841B1257252F7D4B009283FF /* badboys_forLife.jpg in Resources */,
-				841B125B252F7D4B009283FF /* jurassic_world.jpg in Resources */,
+				841B1257252F7D4B009283FF /* badboys.jpg in Resources */,
+				841B125B252F7D4B009283FF /* jurassic.jpg in Resources */,
 				841B1256252F7D4B009283FF /* avengers.jpg in Resources */,
 				841B125A252F7D4B009283FF /* avatar.jpg in Resources */,
-				841B125C252F7D4B009283FF /* spiderman_farFromHome.jpg in Resources */,
+				841B125C252F7D4B009283FF /* spiderman.jpg in Resources */,
 				84C063542529720100D6A1F5 /* Config.txt in Resources */,
-				841B1259252F7D4B009283FF /* Sherlock.jpg in Resources */,
+				841B1259252F7D4B009283FF /* sherlock.jpg in Resources */,
 				84C0634F2529716B00D6A1F5 /* XCtest.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +369,7 @@
 				84A01A13250C38EF00C1D7F1 /* DataLoader.swift in Sources */,
 				84A01A22250C3A1000C1D7F1 /* Int.swift in Sources */,
 				842F2A81252162EF00636211 /* ChartView.swift in Sources */,
+				841B1261252F812C009283FF /* Data.swift in Sources */,
 				8428D23F251D054B00C23804 /* Translator.swift in Sources */,
 				84A01A11250C38EF00C1D7F1 /* CoreDataStore.swift in Sources */,
 				84A01A23250C3A1000C1D7F1 /* Double.swift in Sources */,
