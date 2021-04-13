@@ -1,5 +1,5 @@
 # Ne pas confondre Config et configuration.
-L'idée est que la config permet d'ajouter des variable via le plist.
+L'idée est que la config permet d'ajouter des variables via le plist.
 Donc avoir plusieurs config est interessant pour changer d'environement ou avoir des 'pre-Settings'
 
 # Lorsque le projet contient des framework le searchPath ne seras pas set pour les nouvelles configuration;

@@ -65,6 +65,7 @@
 		842F2A862521654800636211 /* Pie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		842F2A8B252167DF00636211 /* SequenceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceLoader.swift; sourceTree = "<group>"; };
 		84340CDE2521AB6300B408E5 /* xcframework */ = {isa = PBXFileReference; lastKnownFileType = text; path = xcframework; sourceTree = "<group>"; };
+		8435C8CC2625914500517515 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		84538B0B25593E22001CC6BD /* README_Pattern.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README_Pattern.md; sourceTree = "<group>"; };
 		84A019EE250C38AB00C1D7F1 /* LCFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LCFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A019F1250C38AB00C1D7F1 /* LCFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFramework.h; sourceTree = "<group>"; };
@@ -82,6 +83,11 @@
 		84C062E32526DC2B00D6A1F5 /* localization */ = {isa = PBXFileReference; lastKnownFileType = text; path = localization; sourceTree = "<group>"; };
 		84C0634E2529716B00D6A1F5 /* XCtest.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = XCtest.txt; sourceTree = "<group>"; };
 		84C063532529720100D6A1F5 /* Config.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Config.txt; sourceTree = "<group>"; };
+		EC0E297C2614BB0C00564BDA /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
+		EC0E29912614C3D800564BDA /* Helper.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Helper.md; sourceTree = "<group>"; };
+		EC94667126249E2B005EFC29 /* upload.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = upload.md; sourceTree = "<group>"; };
+		EC94667226249F9A005EFC29 /* codeSigning.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = codeSigning.md; sourceTree = "<group>"; };
+		ECE4550A2615F6F800F9F204 /* extension.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = extension.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +175,14 @@
 			path = Scripts;
 			sourceTree = "<group>";
 		};
+		8435C8CB2625902900517515 /* FastLane */ = {
+			isa = PBXGroup;
+			children = (
+				8435C8CC2625914500517515 /* README.md */,
+			);
+			path = FastLane;
+			sourceTree = "<group>";
+		};
 		84538B0A25593DFD001CC6BD /* Project */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +213,11 @@
 		84A019F0250C38AB00C1D7F1 /* LCFramework */ = {
 			isa = PBXGroup;
 			children = (
+				EC94667026249E03005EFC29 /* AppStore */,
+				ECE455092615F6DC00F9F204 /* SwiftUI */,
+				EC0E297B2614BAEF00564BDA /* Tests */,
 				84538B0A25593DFD001CC6BD /* Project */,
+				8435C8CB2625902900517515 /* FastLane */,
 				841B12792534477C009283FF /* AVFoundation */,
 				841B125F252F80CE009283FF /* Data */,
 				841B124E252F7D33009283FF /* Jackets */,
@@ -260,6 +278,32 @@
 				84C063532529720100D6A1F5 /* Config.txt */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		EC0E297B2614BAEF00564BDA /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EC0E297C2614BB0C00564BDA /* Notes.md */,
+				EC0E29912614C3D800564BDA /* Helper.md */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		EC94667026249E03005EFC29 /* AppStore */ = {
+			isa = PBXGroup;
+			children = (
+				EC94667126249E2B005EFC29 /* upload.md */,
+				EC94667226249F9A005EFC29 /* codeSigning.md */,
+			);
+			path = AppStore;
+			sourceTree = "<group>";
+		};
+		ECE455092615F6DC00F9F204 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				ECE4550A2615F6F800F9F204 /* extension.md */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
